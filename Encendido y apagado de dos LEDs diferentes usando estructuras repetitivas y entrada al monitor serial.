@@ -1,0 +1,42 @@
+int ledV;
+int ledR;
+
+void setup() {
+  pinMode(13,OUTPUT); // Led Verde
+  pinMode(12,OUTPUT); // Led Rojo
+  
+Serial.begin(9600);
+Serial.println("¿Cuantas veces quieres que encienda el led verde?");
+while (Serial.available()==0){
+}
+ledV = Serial.parseInt();
+Serial.end();
+
+Serial.begin(9600);
+Serial.println("¿Cuantas veces quieres que encienda el led rojo?");
+while (Serial.available()==0){
+}
+ledR = Serial.parseInt();
+Serial.end();
+}
+
+
+void loop() {
+  
+  for (int i = 0; i < ledV; i++)
+  {
+  digitalWrite(13,HIGH);
+  delay(500);
+  digitalWrite(13,LOW);
+  delay(500);
+  }
+
+  for (int j = 0; j < ledR; j++)
+  {
+  digitalWrite(12,HIGH);
+  delay(500);
+  digitalWrite(12,LOW);
+  delay(500);
+  }
+ 
+}
